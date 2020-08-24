@@ -1,0 +1,51 @@
+
+<!--   <div class="container">
+    <div class="row">
+      <div class="col">
+        <ng-select [items]="topics" [multiple]="true" [closeOnSelect]="false" [hideSelected]="true" bindLabel="name"
+          placeholder="Select topics" [(ngModel)]="selectedTopics">
+        </ng-select>
+      </div>
+      <button type="button" class="col col-md-auto btn btn-primary" (click)="getSelectedTopics()">Submit</button>
+      <div class="col col-md-auto">
+        <input class="form-control" type="text" [(ngModel)]="nameFilter" name="nameFilter" (ngModelChange)="filter()"
+          placeholder="Search by term">
+      </div>
+    </div>
+  </div>
+  <br><br> -->
+  <div>
+  <mat-form-field appearance="fill" style="width:80%">
+      <mat-label>Select topics</mat-label>
+      <mat-select (selectionChange)="getSelectedTopics()" [multiple]="true" bindLabel="name" placeholder="Select topics" [(ngModel)]="selectedTopics" name="name">
+          <mat-option *ngFor="let topic of topics" [value]="topic.name"> {{topic.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <input style="margin-left: 2%; margin-bottom: 2.5%; width:15%" matInput type="text" [(ngModel)]="nameFilter" name="nameFilter" (ngModelChange)="filter()" placeholder="Search by term">
+  </div>
+  <br>
+
+  <div fxFill fxLayout="column" fxLayoutAlign="space-between">
+    <div fxLayout="row wrap">
+      <mat-grid-list cols="4" rowHeight="2:1" gutterSize="7px" >
+        <ng-container *ngFor="let repo of allRepos; index as i">
+          <mat-grid-tile ng-app [queryParams]="{dialog: true}" style="border: 1px solid black;" id="{{ i }}" [ngClass]="{'mat-elevation-z8': id === i, '': id != i }" (mouseenter)="addClass(id=i, repo)" (mouseleave)="removeClass(id=i)" 
+          (click)="repositoryClick(id=i, repo)">
+            <div *ngIf="identifier != i" id="div_{{i}}" style="margin: 8%; text-align: center;">
+              <h2>{{repo.name}}</h2>
+            </div>
+            <div *ngIf="isShown && identifier == i" id="information_{{i}}" style="margin: 8%; text-align: center;">
+              <p><b>Topics: </b>{{repo.topics}}</p>
+            </div>
+          </mat-grid-tile>
+        </ng-container>
+      </mat-grid-list>
+    </div>
+  
+    <mat-paginator [length]="filteredRepos.length"
+      [pageSize]="size"
+      [pageIndex]="page"
+      [pageSizeOptions]="[4, 8, 12]"
+      (page)="getData($event, filteredRepos)">
+    </mat-paginator>
+  </div>

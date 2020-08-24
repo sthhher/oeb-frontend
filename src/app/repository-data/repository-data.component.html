@@ -1,0 +1,51 @@
+<!-- <div class="container" *ngIf="repo">
+  <h2>{{ repo.name }}</h2>
+  <a href="{{ repo.url }}" target="_blank">{{ repo.url }}</a>
+  <br><br><br>
+  <p><b>ID: </b>{{ repo.id }}</p>
+  <p>
+    <b>Topics: </b>
+    <span *ngFor="let topic of repo.topics; last as isLast">{{ topic }}<span *ngIf="!isLast">, </span></span>
+  </p>
+  <p *ngIf="repo.description"><b>Description: </b>{{ repo.description }}</p>
+  <p *ngIf="repo.contributors">
+    <b>Contributors: </b>
+    <span *ngFor="let cont of repo.contributors; last as isLast">{{ cont.login }}<span *ngIf="!isLast">, </span></span>
+  </p>
+  <p *ngIf="repo.languages">
+    <b>Languages: </b>
+    <span *ngFor="let language of repo.languages; last as isLast">{{ language }}<span *ngIf="!isLast">, </span></span>
+  </p>
+  <p *ngIf="repo.license"><b>License: </b>{{ repo.license }}</p>
+  <br>
+  <h5 *ngIf="repo.readme">README.md:</h5>
+  <p [innerHTML]="repo.readme | marked"></p>
+</div> -->
+
+<h1 mat-dialog-title>Dialog with elements</h1>
+<div mat-dialog-content *ngIf="repo">
+    <h2>{{ repo.name }}</h2>
+    <a href="{{ repo.url }}" target="_blank">{{ repo.url }}</a>
+    <br><br><br>
+    <p><b>ID: </b>{{ repo.id }}</p>
+    <p>
+      <b>Topics: </b>
+      <span *ngFor="let topic of repo.topics; last as isLast">{{ topic }}<span *ngIf="!isLast">, </span></span>
+    </p>
+    <p *ngIf="repo.description"><b>Description: </b>{{ repo.description }}</p>
+    <p *ngIf="repo.contributors">
+      <b>Contributors: </b>
+      <span *ngFor="let cont of repo.contributors; last as isLast">{{ cont.login }}<span *ngIf="!isLast">, </span></span>
+    </p>
+    <p *ngIf="repo.languages">
+      <b>Languages: </b>
+      <span *ngFor="let language of repo.languages; last as isLast">{{ language }}<span *ngIf="!isLast">, </span></span>
+    </p>
+    <p *ngIf="repo.license"><b>License: </b>{{ repo.license }}</p>
+    <br>
+    <h5 *ngIf="repo.readme">README.md:</h5>
+    <p [innerHTML]="repo.readme | marked"></p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
