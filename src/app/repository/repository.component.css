@@ -39,3 +39,22 @@
   opacity: .5;
   color: black;
 }
+
+#select {
+  width: 80%;
+}
+
+.nameFilter {
+  margin-left: 2%; 
+  margin-bottom: 2.5%; 
+  width:15%
+}
+
+mat-grid-tile {
+  border: 1px solid black;
+}
+
+.divRepo {
+  margin: 8%; 
+  text-align: center;
+}

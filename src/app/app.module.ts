@@ -36,6 +36,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+import {ChartModule} from 'primeng/chart';
+import {PanelModule} from 'primeng/panel';
 
 @NgModule({
   imports: [
@@ -61,7 +64,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule,
+    ChartModule,
+    PanelModule
   ],
   declarations: [
     AppComponent,

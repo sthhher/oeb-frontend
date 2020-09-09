@@ -120,7 +120,7 @@ export class RepositoryComponent implements OnInit {
   repositoryClick(id: any, repo) : void {
     this.id = id;
     this.dialog.open(RepositoryDataComponent, {
-      data: {name: repo["name"]}
+      data: {name: repo["name"], allRepos: this.repos, allTopics: this.topics}
     });
   }
 }
