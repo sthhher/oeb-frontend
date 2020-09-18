@@ -58,3 +58,14 @@ mat-grid-tile {
   margin: 8%; 
   text-align: center;
 }
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}

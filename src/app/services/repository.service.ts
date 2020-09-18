@@ -18,8 +18,10 @@ export class RepositoryService {
   private repoUrl = environment.REPOSITORY;
   public topics: Observable<string[]>;
   public repos: Observable<Repository[]>;
+  public tmpRepos: Observable<Repository[]>;
   public filteredRepos: Observable<Repository[]>;
   public repo: Observable<Repository>;
+  findRepo: boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -33,11 +35,11 @@ export class RepositoryService {
     return this.repos;
   }
 
-  getFilteredRepos(topicsArray: string[]): Observable<Repository[]> {
+  getFilteredRepos(topicsArray: string[], labelPosition: string): Observable<Repository[]> {
     const options = topicsArray
       ? {
         params: new HttpParams({
-          fromObject: { t: topicsArray },
+          fromObject: { t: topicsArray, s: labelPosition },
         }),
       }
       : {};

@@ -37,14 +37,18 @@ export class RepositoryComponent implements OnInit {
   classBoolean:boolean = false;
   initialClass: any;
   id: any;
+  checked: boolean;
   isShown: boolean = false ; // hidden by default
   identifier: any;
+  labelPosition: 'inclusive' | 'exclusive' = 'inclusive';
 
   routeQueryParams$: Subscription;
 
   constructor(private route: ActivatedRoute, private repoService: RepositoryService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.checked = true;
+    this.getSelectedTopics();
     this.repoService.getTopics().subscribe((data) => {
       this.topics = data;
     });
@@ -76,8 +80,9 @@ export class RepositoryComponent implements OnInit {
         }
       });
     });
-    this.repoService.getFilteredRepos(filterTopics).subscribe((data) => {
+    this.repoService.getFilteredRepos(filterTopics, this.labelPosition).subscribe((data) => {
       this.filteredRepos = data;
+      console.log(this.filteredRepos);
       this.getData({pageIndex: this.page, pageSize: this.size}, this.filteredRepos);
     });
   }

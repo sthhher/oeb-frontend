@@ -39,6 +39,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ChartModule} from 'primeng/chart';
 import {PanelModule} from 'primeng/panel';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -67,6 +68,7 @@ import {PanelModule} from 'primeng/panel';
     MatDialogModule,
     MatTabsModule,
     ChartModule,
+    MatRadioModule,
     PanelModule
   ],
   declarations: [

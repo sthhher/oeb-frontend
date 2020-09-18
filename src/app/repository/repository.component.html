@@ -14,13 +14,22 @@
   </div>
   <br><br> -->
   <div>
-  <mat-form-field appearance="fill" id="select">
+    <mat-form-field appearance="fill" id="select">
       <mat-label>Select topics</mat-label>
-      <mat-select (selectionChange)="getSelectedTopics()" [multiple]="true" bindLabel="name" placeholder="Select topics" [(ngModel)]="selectedTopics" name="name">
+      <mat-select (selectionChange)="getSelectedTopics()" *ngIf="labelPosition === 'inclusive'" [multiple]="true" bindLabel="name" placeholder="Select topics" [(ngModel)]="selectedTopics" name="name">
           <mat-option *ngFor="let topic of topics" [value]="topic.name"> {{topic.name}}</mat-option>
+      </mat-select>
+      <mat-select (selectionChange)="getSelectedTopics()" *ngIf="labelPosition === 'exclusive'" [multiple]="true" bindLabel="name" placeholder="Select topics" [(ngModel)]="selectedTopics" name="name">
+        <mat-option *ngFor="let topic of topics" [value]="topic.name"> {{topic.name}} </mat-option>
       </mat-select>
     </mat-form-field>
     <input class="nameFilter" matInput type="text" [(ngModel)]="nameFilter" name="nameFilter" (ngModelChange)="filter()" placeholder="Search by term">
+    <section class="example-section">
+      <mat-radio-group (change)="getSelectedTopics()" [(ngModel)]="labelPosition">
+        <mat-radio-button class="example-margin" value="inclusive"> Show all the topics that have SOME of the options selected.</mat-radio-button>
+        <mat-radio-button class="example-margin" value="exclusive">Show all the topics that have ALL the options selected.</mat-radio-button>
+      </mat-radio-group>
+    </section>
   </div>
   <br>
 
