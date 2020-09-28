@@ -82,7 +82,6 @@ export class RepositoryComponent implements OnInit {
     });
     this.repoService.getFilteredRepos(filterTopics, this.labelPosition).subscribe((data) => {
       this.filteredRepos = data;
-      console.log(this.filteredRepos);
       this.getData({pageIndex: this.page, pageSize: this.size}, this.filteredRepos);
     });
   }

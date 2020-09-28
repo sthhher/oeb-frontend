@@ -47,9 +47,10 @@ export class RepositoryDataComponent implements OnInit {
     this.repos = this.repository["allRepos"];
     this.topics = this.repository["allTopics"];
 
+    console.log(this.repository);
     //get the clickedRepo
     this.clickedRepo = this.repos.filter(repo => repo.name === this.repository["name"]);
-
+    console.log(this.clickedRepo);
     for (let i = 0; i < this.clickedRepo[0]["topics"].length; i++) {
       for (let j = 0; j < this.repos.length; j++) {
         for(let z = 0; z < this.repos[j]["topics"].length; z++) {
